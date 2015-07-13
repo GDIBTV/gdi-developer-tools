@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Better Web Debugging: a Developer Tools Workshop</title>
+
+		<meta name="description" content="Slides and class notes for GDI Burlington’s Developer Tools 2.5 hour workshop. Materials by Rachael Arnold.">
+		<meta name="author" content="Girl Develop It">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="reveal/css/reveal.css">
+		<link rel="stylesheet" href="reveal/css/theme/gdidefault.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!-- light editor--><link rel="stylesheet" href="reveal/lib/css/light.css">
+		<!-- dark editor<link rel="stylesheet" href="reveal/lib/css/dark.css">-->
+
+		<!-- Use the PDF print sheet so students can print slides-->
+		<link rel="stylesheet" href="reveal/css/print/pdf.css" type="text/css" media="print">
+		<link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<!--[if lt IE 9]>
+		<script src="reveal/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<!-- ---------------------------------------------------
+			PRESENTING TIPS:
+
+			Up, Down, Left, Right: Navigation
+			f: Full-screen
+			s: Show slide notes
+			o: Toggle overview
+			. or b: Turn screen black
+			Esc: Escape from full-screen, or toggle overview
+
+			Note that Slide Notes will work and sync to slides, 
+			but will not show the correct slide preview due to 
+			submodule/directory structure
+
+		----------------------------------------------------- -->
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+        
+				<section>
+					<h1>Better Web Debugging</h1>
+					<h3>a Developer Tools Workshop</h3>
+					<!-- CUSTOMIZE ME! -->
+					<p><br>Follow along in Google Chrome at
+						<br><a href="gdibtv.github.io/gdi-developer-tools/">gdibtv.github.io/gdi-developer-tools</a></p>
+				</section>
+       
+				<section>
+					<h3>Welcome!</h3>
+					<div class="left-align">
+						<p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+						<p class="green">Some "rules"</p>
+						<ul>
+							<li>We are here for you!</li>
+							<li>Every question is important</li>
+							<li>Help each other</li>
+							<li>Have fun</li>
+						</ul>
+					</div>
+				</section>
+
+				<section class="hide-pdf">
+					<h3>Welcome!</h3>
+					<div class="left-align">
+						<p class="green">Tell us about yourself.</p>
+						<ul>
+							<li>Who are you?</li>
+							<li>What do you hope to get out of the workshop?</li>
+							<li>What is your go-to debugging comment?</li>
+						</ul>
+					</div>
+				</section>
+
+
+				<!-- Start of Class Slides -->
+				<section>
+					<h3>Debugging, then</h3>
+
+					<p>Debugging client-side code was hard for a long time.</p>
+					<p class="fragment">CSS had a lot of this:</p>
+<pre class="fragment"><code class="css">	div.classname {
+		outline: 1px solid green;
+	}
+	body {
+		background: red !important;
+	}
+</code></pre>
+					<p class="fragment">and JS had a lot of this:</p>
+					<p class="fragment" id="alertMe"><small>( a.k.a. <code>alert();</code> all the things! )</small></p>
+
+					<aside class="notes">
+						Beware, an alert will pop up for the final fragment.
+					</aside>
+				</section>
+
+				<section>
+					<h3>Debugging, then</h3>
+					<p>So basically:</p>
+					<p>Inexact</p>
+					<p>Time-consuming</p>
+					<p><strong>Totally not fun</strong></p>
+				</section>
+
+				<section>
+					<h3>Debugging, now</h3>
+					<p>Web debugging got infinitely better in early 2006.<br><br></p>
+					<p><a href="https://www.webkit.org/blog/41/introducing-the-web-inspector/" target="_blank">Webkit Introduced the “Web Inspector”</a></p>
+					<p>and</p>
+					<p><a href="http://joehewitt.com/2006/03/15/firebug-a-love-story" target="_blank">Joe Hewitt introduced Firebug for Firefox</a></p>
+					<p><br><br><small>IE didn’t have equivalent debugging tools until IE8 was released in 2009.</small></p>
+
+					<aside class="notes">
+						<p>Chrome wasn't released until 2008.</p>
+
+						<p>Most developers used Firebug, since at the time, Safari was just that browser that people use on those weird Mac computers.</p>
+
+						<p>As of this authoring (2015), all major browsers have access to feature-parity, but Chrome is the only one that is platform agnostic (compare IE/Safari) and doesn't rely on third-party plugins (Firebug/Firefox)</p>
+					</aside>
+				</section>
+
+				<section>
+					<h3>Debugging, now</h3>
+
+					<img src="img/devtools-overview-screencap.png" alt="Screencap of this presentation in dev tools.">
+
+				</section>
+
+				<section>
+					<h3>Debugging, now</h3>
+
+					<div class="left-align">
+						<p class="green">Chrome Developer Tools is…</p>
+						<ul>
+							<li>a <abbr title="Document Object Model">DOM</abbr> inspector</li>
+							<li>a <abbr title="Document Object Model">DOM</abbr> manipulator</li>
+							<li>an emulator</li>
+							<li>a Javascript <abbr title="Read-Evaluate-Print-Loop">REPL</abbr></li>
+							<li>a debugger</li>
+							<li>a network profiler</li>
+							<li>an <abbr title="Integrated Development Environment">IDE</abbr>?</li>
+						</ul>
+						<p>… and more!</p>
+					</div>
+
+				</section>
+
+				<section>
+					<h3>Enough History, Let’s Dive In</h3>
+
+					<p>Open Developer Tools</p>
+
+					<img src="img/open-main-menu.png" alt="Hamburger menu > More Tools > Developer Tools | option/alt + command/control + i">
+					<p><small>Mac: option+command+i <br>Win: alt+control+i</small></p>
+
+					<aside class="notes">
+						<p>Demo right clicking > Inspect Element as well</p>
+						<!--<img src="img/open-context-menu.png" alt="Right click on an element to inspect">-->
+					</aside>
+
+				</section>
+
+				<section>
+					<section>
+						<h3>Overview</h3>
+
+						image of default layout
+
+					</section>
+
+					<section>
+						<h3>Workflow Customization</h3>
+
+						<p>Placement</p>
+
+						images of left, right, popout
+
+						<aside class="notes">
+							<p>Pro of right-alignment: the computed styles tab is always visible when in Element view—very handy for CSS workflows, less important when you're focusing on JS</p>
+						</aside>
+
+					</section>
+
+					<section>
+						<h3>Workflow Customization</h3>
+
+						<p>Toggle Console</p>
+
+						image of console pane vs. tab-only
+
+					</section>
+
+					<section>
+						<h3>Workflow Customization</h3>
+
+						<p>Toggle Emulation</p>
+
+						image of emulation pane, rulers, etc
+
+					</section>
+
+					<section>
+						<h3>Workflow Customization</h3>
+
+						<p>Settings</p>
+
+						image of settings
+
+						<aside class="notes">
+							<p>No need to cover all the settings—people can play around on their own later</p>
+						</aside>
+
+					</section>
+
+				</section>
+
+				<section>
+
+					TODO … DOM inspecting, manipulating, emulation
+
+					<aside class="notes">
+						Brain dump (a.k.a. find places to put this info)
+
+						Emulation is inexact. You're spoofing sizes, UA to some degree, but it doesn't take the place of testing on a specific device for interaction, certain CSS properties, etc.
+
+					</aside>
+
+				</section>
+
+				<section>
+					<p style="margin-top: 20%">That’s a lot so far…</p>
+					<h2>Take A 5-minute Break</h2>
+					<p>Let it all sink in</p>
+
+				</section>
+
+				<section>
+
+					TODO … JS debugging, network profiling, console stuff, etc
+
+				</section>
+
+				<!-- The End -->
+				<section>
+					<h2 style="margin-top: 20%">Questions?</h2>
+					
+					<!-- CUSTOMIZE ME! -->
+					<h4 style="margin-top: 20%">Stay In Touch</h4>
+					<p><a href="http://raearnold.com">Rachael Arnold</a></p>
+					<p><small><a href="https://twitter.com/raevenfea">@raevenfea</a></small></p>
+				</section>
+
+
+			</div>
+			<footer>
+				<div class="copyright">
+					<!-- CUSTOMIZE ME! -->
+					Better Web Debugging: a Developer Tools Workshop -- GDI Burlington --
+					<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+				</div>
+			</footer>
+		</div>
+
+
+		<script src="reveal/lib/js/head.min.js"></script>
+		<script src="reveal/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+		<script>
+		Reveal.addEventListener( 'fragmentshown', function( event ) {
+			// Example of JS debugging
+			if (event.fragment.id === "alertMe") { 
+				alert("Why isn't this working!?!");
+			}
+		} );
+		</script>
+	</body>
+</html>
