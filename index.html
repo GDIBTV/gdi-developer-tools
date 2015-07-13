@@ -35,10 +35,6 @@
 			. or b: Turn screen black
 			Esc: Escape from full-screen, or toggle overview
 
-			Note that Slide Notes will work and sync to slides, 
-			but will not show the correct slide preview due to 
-			submodule/directory structure
-
 		----------------------------------------------------- -->
 
 	</head>
@@ -101,7 +97,7 @@
 					<p class="fragment">and JS had a lot of this:</p>
 					<p class="fragment" id="alertMe"><small>( a.k.a. <code>alert();</code> all the things! )</small></p>
 
-					<aside class="notes">
+					<aside class="notes" data-markdown>
 						Beware, an alert will pop up for the final fragment.
 					</aside>
 				</section>
@@ -122,12 +118,12 @@
 					<p><a href="http://joehewitt.com/2006/03/15/firebug-a-love-story" target="_blank">Joe Hewitt introduced Firebug for Firefox</a></p>
 					<p><br><br><small>IE didn’t have equivalent debugging tools until IE8 was released in 2009.</small></p>
 
-					<aside class="notes">
-						<p>Chrome wasn't released until 2008.</p>
+					<aside class="notes" data-markdown>
+						Chrome wasn't released until 2008.
 
-						<p>Most developers used Firebug, since at the time, Safari was just that browser that people use on those weird Mac computers.</p>
+						Most developers used Firebug, since at the time, Safari was just that browser that people use on those weird Mac computers.
 
-						<p>As of this authoring (2015), all major browsers have access to feature-parity, but Chrome is the only one that is platform agnostic (compare IE/Safari) and doesn't rely on third-party plugins (Firebug/Firefox)</p>
+						As of this authoring (2015), all major browsers have access to feature-parity, but Chrome is the only one that is platform agnostic (compare IE/Safari) and doesn't rely on third-party plugins (Firebug/Firefox)
 					</aside>
 				</section>
 
@@ -158,15 +154,15 @@
 				</section>
 
 				<section>
-					<h3>Enough History, Let’s Dive In</h3>
+					<h3>Enough History, Dive In</h3>
 
 					<p>Open Developer Tools</p>
 
 					<img src="img/open-main-menu.png" alt="Hamburger menu > More Tools > Developer Tools | option/alt + command/control + i">
 					<p><small>Mac: option+command+i <br>Win: alt+control+i</small></p>
 
-					<aside class="notes">
-						<p>Demo right clicking > Inspect Element as well</p>
+					<aside class="notes" data-markdown>
+						Demo right clicking > Inspect Element as well
 						<!--<img src="img/open-context-menu.png" alt="Right click on an element to inspect">-->
 					</aside>
 
@@ -176,7 +172,7 @@
 					<section>
 						<h3>Overview</h3>
 
-						image of default layout
+						<img src="img/devtools-overview-screencap-2.png" alt="Screencap of overall dev tools panel" width="70%">
 
 					</section>
 
@@ -185,10 +181,12 @@
 
 						<p>Placement</p>
 
-						images of left, right, popout
+						<img src="img/dock-bottom-screencap.png" alt="Screencap of panel docked to bottom of window" width="30%">
+						<img src="img/dock-right-screencap.png" alt="Screencap of panel docked to right of window" width="30%">
+						<img src="img/popout-screencap.png" alt="Screencap of panel in own window" width="30%">
 
-						<aside class="notes">
-							<p>Pro of right-alignment: the computed styles tab is always visible when in Element view—very handy for CSS workflows, less important when you're focusing on JS</p>
+						<aside class="notes" data-markdown>
+							Pro of right-alignment: the computed styles tab is always visible when in Element view—very handy for CSS workflows, less important when you're focusing on JS
 						</aside>
 
 					</section>
@@ -198,7 +196,12 @@
 
 						<p>Toggle Console</p>
 
-						image of console pane vs. tab-only
+						<img src="img/console-drawer.png" alt="Screencap of console in drawer" width="40%">
+						<img src="img/console-hidden.png" alt="Screencap of console hidden" width="40%">
+
+						<aside class="notes" data-markdown>
+							Console can also be on its own tab, which we'll cover later.
+						</aside>
 
 					</section>
 
@@ -207,7 +210,7 @@
 
 						<p>Toggle Emulation</p>
 
-						image of emulation pane, rulers, etc
+						<img src="img/device-mode.png" alt="Screencap of emulation" width="70%">
 
 					</section>
 
@@ -216,10 +219,10 @@
 
 						<p>Settings</p>
 
-						image of settings
+						<img src="img/settings-pane.png" alt="Screencap of settings" width="50%">
 
-						<aside class="notes">
-							<p>No need to cover all the settings—people can play around on their own later</p>
+						<aside class="notes" data-markdown>
+							No need to cover all the settings—people can play around on their own later
 						</aside>
 
 					</section>
@@ -230,11 +233,10 @@
 
 					TODO … DOM inspecting, manipulating, emulation
 
-					<aside class="notes">
+					<aside class="notes" data-markdown>
 						Brain dump (a.k.a. find places to put this info)
 
 						Emulation is inexact. You're spoofing sizes, UA to some degree, but it doesn't take the place of testing on a specific device for interaction, certain CSS properties, etc.
-
 					</aside>
 
 				</section>
@@ -249,6 +251,22 @@
 				<section>
 
 					TODO … JS debugging, network profiling, console stuff, etc
+
+					<aside class="notes" data-markdown>
+						Brain dump (a.k.a. find places to put this info)
+
+						start with overview of the console as REPL
+
+						then jump into consoles and debugger and go into tracing from there
+
+						console.log is just the beginning (https://developer.chrome.com/devtools/docs/console-api)
+						Danger will robinson! Don't release code with consoles!
+
+						debugger;
+
+						You need to find some good examples for profiling and audits, because the slides won't cut it. GDI site?
+
+					</aside>
 
 				</section>
 
