@@ -440,7 +440,7 @@
 				</section>
 
 				<section>
-					<h2>The <strong class="yellow">Console</strong> (Tab)</h3>
+					<h3>The <strong class="yellow">Console</strong> (Tab)</h3>
 
 					<p>The Console allows you to interact with your page and Dev Tools through JavaScript.</p>
 					<p>At its most basic, it's a <abbr title="Read-Evaluate-Print-Loop">REPL</abbr>—you can execute basic JS commands in it.</p>
@@ -449,7 +449,7 @@
 				</section>
 
 				<section data-state="triggerConsoleLog">
-					<h2>The Console API</h2>
+					<h3>The Console API</h3>
 
 					<p>There is also a Console API that makes debugging much more streamlined than a bunch of <code>alert()</code> messages.</p>
 
@@ -473,7 +473,7 @@
 				</section>
 
 				<section>
-					<h2>The Console API</h2>
+					<h3>The Console API</h3>
 
 					<p>The Console will also show messages from the browser, network issues, and actual errors in your JavaScript.</p>
 
@@ -487,7 +487,7 @@
 				</section>
 
 				<section>
-					<h2>The <strong class="yellow">Sources</strong> Tab</h3>
+					<h3>The <strong class="yellow">Sources</strong> Tab</h3>
 
 					<p>Our JavaScript errors, warnings, and logs link to the exact code that triggered them in the <strong class="yellow">Sources</strong> Tab*</p>
 
@@ -497,7 +497,7 @@
 				</section>
 
 				<section data-state="triggerDebugger">
-					<h2><code>debugger;</code></h3>
+					<h3><code>debugger;</code></h3>
 
 					<p>Ever wish you could just make your JS stop at a certain point so you can study your variables?</p>
 
@@ -510,7 +510,7 @@
 				</section>
 
 				<section>
-					<h2>JS Breakpoints</h3>
+					<h3>JS Breakpoints</h3>
 
 					<img src="img/js-breakpoint.png" alt="JS breakpoint screenshot" class="right"/>
 
@@ -525,7 +525,7 @@
 				</section>
 
 				<section>
-					<h2>DOM Breakpoints</h3>
+					<h3>DOM Breakpoints</h3>
 
 					<img src="img/dom-breakpoint.png" alt="DOM breakpoint screenshot" class="right"/>
 					
@@ -537,7 +537,7 @@
 				</section>
 
 				<section>
-					<h2>The <strong class="yellow">Profile</strong> Tab</h3>
+					<h3>The <strong class="yellow">Profile</strong> Tab</h3>
 
 					<p>The <strong class="yellow">Profile</strong> Tab allows you to see the CPU usage of your JavaScript. This lets you check for poor performance.</p>
 
@@ -549,7 +549,7 @@
 				</section>
 
 				<section>
-					<h2>The <strong class="yellow">Timeline</strong> Tab</h3>
+					<h3>The <strong class="yellow">Timeline</strong> Tab</h3>
 
 					<p>The <strong class="yellow">Timeline</strong> Tab allows you to see a lot more information about your page’s performance.</p>
 
@@ -577,15 +577,112 @@
 
 				</section>
 
+				<!-- Network -->
 				<section>
+					<h2>Assets and Connections</h2>
+				</section>
 
-					TODO … network profiling, resources, audits
+				<section>
+					<h3>The <strong class="yellow">Network</strong> Tab</h3>
+
+					<p>Web pages are rarely made from a single HTML file. The <strong class="yellow">Network</strong> Tab shows us all of the different <em>requests</em> our page makes.</p>
+
+					<img src="img/network-panel.png" alt="Network Panel screenshot"/>
+
+				</section>
+
+				<section>
+					<h3>Checking Out Requests</h3>
+
+					<p>Each request in the Network tab shows important information, including:</p>
+					<ul>
+						<li>Status Code</li>
+						<li>Request Method</li>
+						<li>Response</li>
+						<li>Headers</li>
+					</ul>
+
+					<p class="push">Learn more about what all those mean at <br><a href="http://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177" target="_blank">HTTP Protocol @ Tutsplus</a></p>
 
 					<aside class="notes" data-markdown>
+						Talk about checking for 404s
 
+						Advanced: make sure you're making the correct call type (post v get)
 
+						Good chance for GA tracking check: [http://girldevelopit.com](girldevelopit.com) filter to utma for GA
+
+						show API call to meetup for upcoming events? [https://www.girldevelopit.com/chapters/burlington](https://www.girldevelopit.com/chapters/burlington)
 
 					</aside>
+
+				</section>
+
+				<section>
+					<h3>Network Performance Checking</h3>
+
+					<p>You can use the timeline on the Network tab to learn about performance of your page:</p>
+					<ul>
+						<li>Bottlenecks: is an asset causing loading to hang?</li>
+						<li>Are you trying to access things that don't exist?</li>
+						<li>Do you have a huge image that takes forever to download?</li>
+						<li>What's the experience like for slow connections?</li>
+					</ul>
+
+				</section>
+
+				<section>
+					<h3>The <strong class="yellow">Resources</strong> Tab</h3>
+
+					<p>The <strong class="yellow">Resources</strong> Tab shows us additional information and data our page has access to, like cookies, local storage, and session storage.</p>
+
+					<p>It also shows all the files comprising your page, and updates as additional requests are made (e.g. lazy loaded images).</p>
+
+					<img src="img/resource-tab.png" alt="Resource Panel screenshot"/>
+
+					<aside class="notes" data-markdown>
+						sessionStorage.setItem('mySessionItem','Some info I want to store in the session');
+					</aside>
+
+				</section>
+
+				<section>
+					<h3>The <strong class="yellow">Security</strong> Tab</h3>
+
+					<p>The <strong class="yellow">Security</strong> Tab shows us information about the SSL Encryption, and security certificates for the various domains the page requests resources from.</p>
+
+					<img src="img/security-panel.png" alt="Security Panel screenshot"/>
+
+					<aside class="notes" data-markdown>
+						[https://www.google.com/](https://www.google.com/) (good security, bad audit)
+						[https://css-tricks.com/](https://css-tricks.com/) (mixed security, bad audit)
+					</aside>
+
+				</section>
+
+				<section>
+					<h3>The <strong class="yellow">Audits</strong> Tab</h3>
+
+					<p>The <strong class="yellow">Audits</strong> Tab shows us information about overall performance of the page, and how we might be able to speed up loading times.</p>
+
+					<img src="img/audits-panel.png" alt="Audits Panel screenshot"/>
+
+					<aside class="notes" data-markdown>
+						Everything doesn't have to be green, as you can see! But it gives you things to think about.
+					</aside>
+
+				</section>
+
+				<!-- Resources -->
+				<section>
+					<h2>Resources</h2>
+
+					<ul>
+						<li><a href="https://developers.google.com/web/tools/chrome-devtools/" target="_blank">Google Developers DevTools Docs</a></li>
+						<li><a href="https://developer.chrome.com/devtools/index" target="_blank">Deprecated DevTools Docs</a> — Clearer explanations of the basics</li>
+						<li><a href="https://www.youtube.com/playlist?list=PLNYkxOF6rcIBQ8j3J_PyM8JLAGKqZRByw" target="_blank">The Breakpoint Video Series</a></li>
+						<li><a href="http://discover-devtools.codeschool.com/" target="_blank">CodeSchool Explore and Master Chrome DevTools</a></li>
+						<li><a href="https://www.smashingmagazine.com/2012/06/javascript-profiling-chrome-developer-tools/" target="_blank">JavaScript Profiling @ Smashing Magazine</a></li>
+					</ul>
 
 				</section>
 
@@ -602,6 +699,8 @@
 						Still have some time?
 
 						Show more complex console API stuff [https://developer.chrome.com/devtools/docs/console](https://developer.chrome.com/devtools/docs/console)
+
+						Demo workspaces?
 
 						Mention gray hat stuff?
 						Like, you can change input type of a password to text and it'll show the saved password.
