@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 	<head>
 		<meta charset="utf-8">
 
@@ -11,18 +12,33 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<link rel="stylesheet" href="reveal/css/reveal.css">
-		<link rel="stylesheet" href="reveal/css/theme/gdidefault.css" id="theme">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/gdidefault.css" id="theme">
+		<link rel="stylesheet" href="css/class.css">
 
 		<!-- For syntax highlighting -->
-		<!-- light editor--><link rel="stylesheet" href="reveal/lib/css/light.css">
-		<!-- dark editor<link rel="stylesheet" href="reveal/lib/css/dark.css">-->
+		<!-- light editor --><link rel="stylesheet" href="lib/css/light.css">
+		<!-- dark editor <link rel="stylesheet" href="lib/css/dark.css">-->
+		<!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
 
-		<!-- Use the PDF print sheet so students can print slides-->
-		<link rel="stylesheet" href="reveal/css/print/pdf.css" type="text/css" media="print">
+		<link rel="stylesheet" href="plugin/accessibility-helper/css/accessibility-helper.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!-- If use the PDF print sheet so students can print slides-->
+		<link rel="stylesheet" href="css/print/pdf.css" type="text/css" media="print">
 		<link rel="icon" type="image/x-icon" href="favicon.ico" />
 		<!--[if lt IE 9]>
-		<script src="reveal/lib/js/html5shiv.js"></script>
+		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
 
 		<!-- ---------------------------------------------------
@@ -46,6 +62,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
         
+				<!-- Class Intro -->
 				<section>
 					<h1>Better Web Debugging</h1>
 					<h3>a Developer Tools Workshop</h3>
@@ -81,7 +98,7 @@
 				</section>
 
 
-				<!-- Start of Class Slides -->
+				<!-- History -->
 				<section>
 					<h3>Debugging, then</h3>
 
@@ -153,6 +170,7 @@
 
 				</section>
 
+				<!-- Settings -->
 				<section>
 					<h3>Enough History, Dive In</h3>
 
@@ -169,83 +187,251 @@
 				</section>
 
 				<section>
+					<h3>Overview</h3>
+
+					<img src="img/devtools-overview-screencap-2.png" alt="Screencap of overall dev tools panel" width="70%">
+
+				</section>
+
+				<section>
+					<h3>Workflow Customization</h3>
+
+					<p>Placement</p>
+
+					<img src="img/dock-bottom-screencap.png" alt="Screencap of panel docked to bottom of window" width="30%">
+					<img src="img/dock-right-screencap.png" alt="Screencap of panel docked to right of window" width="30%">
+					<img src="img/popout-screencap.png" alt="Screencap of panel in own window" width="30%">
+
+					<aside class="notes" data-markdown>
+						Pro of right-alignment: the computed styles tab is usually visible when in Element view—very handy for CSS workflows, less important when you're focusing on JS
+					</aside>
+
+				</section>
+
+				<section>
+					<h3>Workflow Customization</h3>
+
+					<p>Toggle Console</p>
+
+					<img src="img/console-drawer.png" alt="Screencap of console in drawer" width="40%">
+					<img src="img/console-hidden.png" alt="Screencap of console hidden" width="40%">
+
+					<aside class="notes" data-markdown>
+						Console can also be on its own tab, which we'll cover later.
+					</aside>
+
+				</section>
+
+				<section>
+					<h3>Workflow Customization</h3>
+
+					<p>Settings</p>
+
+					<img src="img/settings-pane.png" alt="Screencap of settings" width="50%">
+
+					<aside class="notes" data-markdown>
+						No need to cover all the settings—people can play around on their own later
+					</aside>
+
+				</section>
+
+				<!-- DOM Inspection and Manipulation -->
+				<section>
+					<h2>Working with the <abbr title="Document Object Model">DOM</abbr></h2>
+					<h3>The <strong class="blue">Elements</strong> Tab</h3>
+				</section>
+
+				<section>
+					<h3>The <strong>Elements</strong> Tab</h3>
+					<p>What is the DOM?</p>
+					<p>Think of it as your HTML&hellip;</p>
+					<p class="fragment">&hellip;+ anything JS adds.</p>
+					
+					<div class="fragment push">
+						<p>The <strong class="yellow">Elements</strong> Tab is a visual representation of how the browser sees the DOM.</p>
+						<p>You can explore the nested levels by clicking the arrows next to elements.</p>
+					</div>
+				</section>
+
+				<section>
+					<h3>Inspecting Elements</h3>
+					<p>You can inspect any element on the page to learn more about it.</p>
+					<div class="columns">
+						<div class="half">
+							<img src="img/elements-context-menu.png" alt="Right click > Inspect Element"/>
+						</div>
+						<div class="half">
+							<img src="img/elements-inspector-button.png" alt="Turn on Inspector Mode, then select element"/>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Manipulating the DOM</h3>
+					<p>Use the context menu (right-click) to:</p>
+					<ul>
+						<li>Delete elements</li>
+						<li>Change element attributes</li>
+						<li>Edit as HTML</li>
+					</ul>
+					<p class="push">Drag and drop to reorder elements</p>
+
+				</section>
+
+				<section>
 					<section>
-						<h3>Overview</h3>
+						<h3>CSS Debugging</h3>
 
-						<img src="img/devtools-overview-screencap-2.png" alt="Screencap of overall dev tools panel" width="70%">
+						<img src="img/inspecting-css.png" alt="Screencap of CSS pane" class="right"/>
 
-					</section>
-
-					<section>
-						<h3>Workflow Customization</h3>
-
-						<p>Placement</p>
-
-						<img src="img/dock-bottom-screencap.png" alt="Screencap of panel docked to bottom of window" width="30%">
-						<img src="img/dock-right-screencap.png" alt="Screencap of panel docked to right of window" width="30%">
-						<img src="img/popout-screencap.png" alt="Screencap of panel in own window" width="30%">
+						<p>When an element is selected, all of the CSS rules that are applied show in the <strong>Styles</strong> section, ordered by specificity.</p>
+						<p class="push">You can see what is applied, what is overridden, and what is invalid.</p>
 
 						<aside class="notes" data-markdown>
-							Pro of right-alignment: the computed styles tab is always visible when in Element view—very handy for CSS workflows, less important when you're focusing on JS
+							Explain that at different screen breakpoints, box model and computed sections may be in a separate tab.
+
+							Press down for slides on specificity, if time allows and audience needs that level of coverage
 						</aside>
+					</section>
+					<section>
+						<h3>CSS Specificity</h3>
+
+						<p><em class="yellow">Specificity</em> refers to how CSS rules are applied based on ordering, inheritance, and the cascade (the 'C' in CSS).</p>
+
+						<h4 class="push">The Basics: Where Do The Styles Live?</h4>
+						<ul>
+							<li>User Agent Stylesheet (least important)</li>
+							<li>External Stylesheet</li>
+							<li>Inline Styles / modified by JS</li>
+							<li>Anything with <code>!important</code> (most important)</li>
+						</ul>
 
 					</section>
 
 					<section>
-						<h3>Workflow Customization</h3>
+						<h3>CSS Specificity</h3>
 
-						<p>Toggle Console</p>
+						<p>Order matters, so do selectors. Code as simply as possible. Complex selectors modify specificity in complex ways!</p>
 
-						<img src="img/console-drawer.png" alt="Screencap of console in drawer" width="40%">
-						<img src="img/console-hidden.png" alt="Screencap of console hidden" width="40%">
-
-						<aside class="notes" data-markdown>
-							Console can also be on its own tab, which we'll cover later.
-						</aside>
+						<h4 class="push">The Basics: What's the Selector?</h4>
+						<ul>
+							<li>Tag (least important)
+<pre><code class="css">	div { color: lime; }
+</code></pre></li>
+							<li>Class, Attribute
+<pre><code class="css">	.orange { color: orange; }
+	[href^="http"] { color: purple; }
+</code></pre></li>
+							<li>ID
+<pre><code class="css">	#specialsnowflake { color: gray; }
+</code></pre></li>
+							<li>Inline style attribute (most important)
+<pre><code class="css">	style="color: black;"
+</code></pre></li>
+						</ul>
 
 					</section>
 
 					<section>
-						<h3>Workflow Customization</h3>
+						<h3>CSS Specificity</h3>
 
-						<p>Toggle Emulation</p>
+						<p>Further reading:</p>
 
-						<img src="img/device-mode.png" alt="Screencap of emulation" width="70%">
-
-					</section>
-
-					<section>
-						<h3>Workflow Customization</h3>
-
-						<p>Settings</p>
-
-						<img src="img/settings-pane.png" alt="Screencap of settings" width="50%">
-
-						<aside class="notes" data-markdown>
-							No need to cover all the settings—people can play around on their own later
-						</aside>
+						<p>Beginners: <a href="https://css-tricks.com/specifics-on-css-specificity/" rel="external" target="_blank">Specifics on CSS Specificity @ CSS-Tricks</a></p>
+						<p>Advanced: <a href="https://css-tricks.com/a-specificity-battle/" rel="external" target="_blank">A Specificity Battle @ CSS-Tricks</a></p>
 
 					</section>
 
 				</section>
 
 				<section>
+					<h3>CSS Prototyping</h3>
 
-					TODO … DOM inspecting, manipulating, emulation
+					<img src="img/inspecting-manipulating.png" alt="Manipulating CSS attributes" class="right"/>
+
+					<p>You can manipulate CSS by changing attributes, adding them, using a color picker, and more!</p>
+
+					<p class="push">Remember, these changes aren't saved, but it's great for dialing in styles before you put them in your code.</p>
+
+				</section>
+
+				<section>
+					<h3>CSS Prototyping</h3>
+
+					<img src="img/prototyping-add-style.png" alt="Adding CSS style rules" style="max-width: 50%;" class="right"/>
+
+					<p>You can add new selectors by clicking the plus icon, or inline styles in the <code>element.style</code> section.</p>
+
+					<hr style="clear:both;"/>
+
+					<img src="img/prototyping-force-state.png" alt="Force CSS state" style="max-width: 50%;" class="right"/>
+
+					<p>You can also force element states to easily modify the styles that are applied there by clicking the pin icon.</p>
+					<p><a href="#" title="this link doesn't do anything">(think link styling)</a></p>
+
+				</section>
+
+				<section>
+					<h3>Animations</h3>
+
+					<img src="img/animations-pane.png" alt="Animations pane" style="max-width: 50%;" class="right"/>
+
+					<p>The Animations section gives you tools to debug CSS animations. Open it by clicking the stacked diamonds icon.</p>
+
+					<div class="animate-me"></div>
 
 					<aside class="notes" data-markdown>
-						Brain dump (a.k.a. find places to put this info)
+						Demo speed, change easing function and show curve in graph
+					</aside>
 
+				</section>
+
+				<!-- Device Emulating and Breakpoints -->
+				<section>
+					<h3>Device Mode</h3>
+
+					<p>Set screen size, pixel ratio, throttle network, and more&hellip;</p>
+
+					<img src="img/device-mode.png" alt="Screencap of emulation" >
+
+					<aside class="notes" data-markdown>
 						Emulation is inexact. You're spoofing sizes, UA to some degree, but it doesn't take the place of testing on a specific device for interaction, certain CSS properties, etc.
 					</aside>
 
 				</section>
 
 				<section>
-					<p style="margin-top: 20%">That’s a lot so far…</p>
-					<h2>Take A 5-minute Break</h2>
-					<p>Let it all sink in</p>
+					<h3>Responsive Breakpoints</h3>
 
+					<p>See how CSS applies with different media queries and quickly jump to those different sizes.</p>
+
+					<img src="img/gdi-mobile.png" alt="Screencap of emulation mobile" >
+					<img src="img/gdi-tablet.png" alt="Screencap of emulation tablet" >
+
+				</section>
+
+				<section>
+					<section>
+						<p style="margin-top: 20%">That’s a lot so far…</p>
+						<h2>Take A 5-minute Break</h2>
+						<p>Let it all sink in</p>
+
+						<aside class="notes" data-markdown>
+							Think they're doing okay? Pull up the let's develop it section instead.
+						</aside>
+
+					</section>
+
+					<section>
+						<h2>Let's Develop It!</h2>
+						<a href="http://girldevelopit.com" target="_blank"><img src="img/gdi-home.png" alt="girldevelopit.com"></a>
+						<ul>
+							<li>Reorder the nav</li>
+							<li>Figure out the size of the 'Fork me on GitHub' image</li>
+							<li>Change the nav hover states</li>
+						</ul>
+
+					</section>
 				</section>
 
 				<section>
@@ -292,33 +478,36 @@
 		</div>
 
 
-		<script src="reveal/lib/js/head.min.js"></script>
-		<script src="reveal/js/reveal.min.js"></script>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
 
 		<script>
 
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
+            Reveal.initialize({
 				controls: true,
 				progress: true,
 				history: true,
+				center: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-				// Optional libraries used to extend on reveal.js
+				// Optional reveal.js plugins
 				dependencies: [
-					{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
 
 		</script>
+
+
 
 		<script>
 		Reveal.addEventListener( 'fragmentshown', function( event ) {
@@ -328,5 +517,8 @@
 			}
 		} );
 		</script>
+
+
 	</body>
 </html>
+
