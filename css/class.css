@@ -1,3 +1,15 @@
+.button-large { 
+	font-size: 1em; 
+	color: white;
+	background-color: #01a9b4;
+	border-radius: .25em;
+	cursor: pointer;
+}
+.button-large:hover {
+	background-color:#f9b8bb;
+}
+
+.b
 .half {
 	width: 49%;
 	display: inline-block;
